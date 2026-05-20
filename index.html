@@ -414,21 +414,35 @@
         <h2 class="section-title" style="text-align:left; margin-bottom:20px;">Contact Us</h2>
 
         <p>📍 Prachi Vihar, Palasuni, Rasulgarh, Bhubaneswar, Odisha</p>
-        <p>📞 +91 XXXXX XXXXX</p>
+        <p>📞 +91 797807859</p>
         <p>📧 muscletakemultygym@gmail.com</p>
         <p>🕒 Morning: 5 AM – 9 AM | Evening: 4 PM – 9 PM</p>
       </div>
 
-      <form id="contactForm">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Phone Number" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
+      <div style="background:linear-gradient(145deg,#111,#1b1b1b); padding:30px; border-radius:24px; overflow:hidden; border:1px solid #2a2a2a; box-shadow:0 10px 30px rgba(255,49,49,0.15); position:relative;">
+        
+        <div style="margin-bottom:25px; text-align:center;">
+          <h3 style="font-size:2rem; color:#ff3131; margin-bottom:10px; font-weight:700;">
+            Join Muscle Take Multy Gym
+          </h3>
+          <p style="color:#bbb; font-size:1rem; max-width:500px; margin:auto;">
+            Fill out the enquiry form below and our team will contact you with membership details and fitness guidance.
+          </p>
+        </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;">
-          Submit Inquiry
-        </button>
-      </form>
+        <div style="border-radius:18px; overflow:hidden; border:3px solid #ff3131; background:white;">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdrABgRGGwm2dVhNdPWLmUA3B70_XyqQ1m02cgeDjzXDoWGaA/viewform?embedded=true"
+          width="100%"
+          height="950"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          style="border:none; background:white; display:block;">
+          Loading…
+        </iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -439,11 +453,7 @@
   </footer>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for contacting Muscle Take Multy Gym!');
-      this.reset();
-    });
+    console.log('Muscle Take Multy Gym Website Loaded Successfully');
   </script>
 
 </body>
