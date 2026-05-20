@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muscle Take Multy Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ff3131;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a:hover {
+      color: #ff3131;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1400&auto=format&fit=crop') center/cover;
+      padding-top: 100px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      color: #ddd;
+      font-size: 1.2rem;
+    }
+
+    .btn-group {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #ff3131;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #d40000;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .about p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #111;
+      padding: 35px;
+      border-radius: 20px;
+      transition: 0.3s ease;
+      border: 1px solid #222;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #ff3131;
+    }
+
+    .card h3 {
+      color: #ff3131;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #bbb;
+    }
+
+    .pricing .card {
+      text-align: center;
+    }
+
+    .price {
+      font-size: 3rem;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .pricing ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .pricing ul li {
+      margin: 10px 0;
+      color: #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-info p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    form {
+      background: #111;
+      padding: 35px;
+      border-radius: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #000;
+      color: white;
+      font-family: inherit;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #222;
+      color: #888;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Muscle Take Gym</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#plans">Plans</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Muscle Take Multy Gym</h1>
+      <p>10 Years of Strength, Fitness & Transformation in Bhubaneswar</p>
+      <p>Prachi Vihar, Palasuni, Rasulgarh, Bhubaneswar, Odisha</p>
+
+      <div class="btn-group">
+        <a href="#plans" class="btn btn-primary">Join Today</a>
+        <a href="#about" class="btn btn-outline">Explore More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div>
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Gym">
+      </div>
+
+      <div>
+        <h2 class="section-title" style="text-align:left; margin-bottom:20px;">About Us</h2>
+        <p>
+          Muscle Take Multy Gym has proudly completed 10 successful years of helping people achieve their fitness goals.
+        </p>
+        <p>
+          Known for affordable membership plans and quality fitness equipment, the gym provides a motivating environment for beginners, athletes, and bodybuilding enthusiasts.
+        </p>
+        <p>
+          From cardio training to strength workouts, our experienced trainers support every step of your fitness journey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Modern Equipment</h3>
+          <p>Latest weight training and cardio machines for effective workouts.</p>
+        </div>
+
+        <div class="card">
+          <h3>Affordable Membership</h3>
+          <p>Budget-friendly fitness plans for students and professionals.</p>
+        </div>
+
+        <div class="card">
+          <h3>Experienced Trainers</h3>
+          <p>Professional guidance for weight loss, bodybuilding, and fitness.</p>
+        </div>
+
+        <div class="card">
+          <h3>Bodybuilding Support</h3>
+          <p>Dedicated workout support for muscle gain and strength development.</p>
+        </div>
+
+        <div class="card">
+          <h3>Cardio Training</h3>
+          <p>Treadmills, cycling, endurance workouts, and fat-burning sessions.</p>
+        </div>
+
+        <div class="card">
+          <h3>10 Years of Trust</h3>
+          <p>A decade of dedication and fitness transformation in Bhubaneswar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans" class="pricing">
+    <div class="container">
+      <h2 class="section-title">Membership Plans</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Monthly</h3>
+          <div class="price">₹999</div>
+          <ul>
+            <li>✔ Gym Access</li>
+            <li>✔ Cardio Zone</li>
+            <li>✔ Trainer Support</li>
+          </ul>
+          <button class="btn btn-primary">Join Now</button>
+        </div>
+
+        <div class="card">
+          <h3>Quarterly</h3>
+          <div class="price">₹2499</div>
+          <ul>
+            <li>✔ Full Gym Access</li>
+            <li>✔ Workout Guidance</li>
+            <li>✔ Diet Tips</li>
+          </ul>
+          <button class="btn btn-primary">Join Now</button>
+        </div>
+
+        <div class="card">
+          <h3>Yearly</h3>
+          <div class="price">₹6999</div>
+          <ul>
+            <li>✔ Unlimited Access</li>
+            <li>✔ Bodybuilding Guidance</li>
+            <li>✔ Priority Training</li>
+          </ul>
+          <button class="btn btn-primary">Join Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gym Gallery</h2>
+
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="Gym">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" alt="Workout">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" alt="Fitness">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+      <div class="contact-info">
+        <h2 class="section-title" style="text-align:left; margin-bottom:20px;">Contact Us</h2>
+
+        <p>📍 Prachi Vihar, Palasuni, Rasulgarh, Bhubaneswar, Odisha</p>
+        <p>📞 +91 XXXXX XXXXX</p>
+        <p>📧 muscletakemultygym@gmail.com</p>
+        <p>🕒 Morning: 5 AM – 9 AM | Evening: 4 PM – 9 PM</p>
+      </div>
+
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea rows="5" placeholder="Your Message"></textarea>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Muscle Take Multy Gym | Bhubaneswar Fitness Center</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Muscle Take Multy Gym!');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
