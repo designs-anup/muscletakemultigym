@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+  <!-- CRITICAL SEO META TAGS -->
   <title>Muscle Take Multi Gym | Best Gym in Rasulgarh, Bhubaneswar</title>
-  <meta name="description" content="Join Muscle Take Multi Gym in Palasuni, Rasulgarh, Bhubaneswar. 10+ years of fitness excellence. Affordable plans starting at ₹999/month. Cardio, weight training, and expert personal trainers." />
-  <meta name="keywords" content="muscle take multi gym, gym in rasulgarh bhubaneswar, best gym in bhubaneswar, fitness center palasuni, budget gym bhubaneswar, unisex gym rasulgarh, bodybuilding gym odisha, muscle take gym contact" />
+  <meta name="description" content="Join Muscle Take Multi Gym in Palasuni, Rasulgarh, Bhubaneswar. Durga Puja Special Offer Admission Fees ₹799! Modern equipment, cardio, and expert trainers." />
+  <meta name="keywords" content="muscle take multi gym, gym in rasulgarh bhubaneswar, best gym in bhubaneswar, fitness center palasuni, budget gym bhubaneswar, unisex gym rasulgarh, durga puja gym offer" />
   <meta name="author" content="Muscle Take Multi Gym" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.muscletakemultigym.com/" />
 
+  <!-- OPEN GRAPH / SOCIAL MEDIA SEO -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Muscle Take Multi Gym | Best Gym in Rasulgarh, Bhubaneswar" />
-  <meta property="og:description" content="Top-rated fitness center in Bhubaneswar. Modern equipment, cardio training, and affordable packages starting from ₹999." />
+  <meta property="og:title" content="Muscle Take Multi Gym | Durga Puja Special Gym Offer ₹799" />
+  <meta property="og:description" content="Special Durga Puja Offer! Admission Fees at just ₹799. Join top-rated fitness center in Rasulgarh, Bhubaneswar." />
   <meta property="og:url" content="https://www.muscletakemultigym.com/" />
   <meta property="og:site_name" content="Muscle Take Multi Gym" />
 
@@ -268,6 +270,87 @@
       color: #888;
     }
 
+    /* POP-UP PROMOTIONAL OVERLAY STYLES */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      padding: 20px;
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .popup-content {
+      position: relative;
+      background: #111;
+      border: 2px solid #ff3131;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(255, 49, 49, 0.3);
+      text-align: center;
+      transform: scale(0.8);
+      transition: transform 0.4s ease;
+    }
+
+    .popup-overlay.active .popup-content {
+      transform: scale(1);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: #ff3131;
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-close:hover {
+      background: #d40000;
+    }
+
+    .popup-banner-img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .popup-footer {
+      padding: 15px 20px;
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+    }
+
     @media(max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
@@ -280,6 +363,18 @@
   </style>
 </head>
 <body>
+
+  <!-- PROMOTIONAL POP-UP MODAL -->
+  <div class="popup-overlay" id="offerPopup">
+    <div class="popup-content">
+      <button class="popup-close" id="closePopupBtn">&times;</button>
+      <!-- REPLACE THE IMAGE PATH BELOW WITH YOUR UPLOADED BANNER URL -->
+      <img src="offer-banner.jpg" alt="Durga Puja Special Gym Offer - Admission Fees ₹799" class="popup-banner-img" />
+      <div class="popup-footer">
+        <a href="#contact" class="btn btn-primary" id="claimOfferBtn">Claim Offer Now</a>
+      </div>
+    </div>
+  </div>
 
   <header>
     <div class="container">
@@ -463,7 +558,33 @@
   </footer>
 
   <script>
-    console.log('Muscle Take Multi Gym Website Loaded Successfully with SEO');
+    window.addEventListener('DOMContentLoaded', () => {
+      const popup = document.getElementById('offerPopup');
+      const closeBtn = document.getElementById('closePopupBtn');
+      const claimBtn = document.getElementById('claimOfferBtn');
+
+      // Open pop-up after 1 second
+      setTimeout(() => {
+        popup.classList.add('active');
+      }, 1000);
+
+      // Function to hide popup
+      const closePopup = () => {
+        popup.classList.remove('active');
+      };
+
+      closeBtn.addEventListener('click', closePopup);
+
+      // Close when clicking outside image
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          closePopup();
+        }
+      });
+
+      // Close when clicking Claim Offer
+      claimBtn.addEventListener('click', closePopup);
+    });
   </script>
 
 </body>
